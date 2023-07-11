@@ -13,6 +13,7 @@ ImageGalleryItem.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       largeImageURL: PropTypes.string.isRequired,
+      webformatURL: PropTypes.string.isRequired,
     })),
   modalControl: PropTypes.func.isRequired,
 };

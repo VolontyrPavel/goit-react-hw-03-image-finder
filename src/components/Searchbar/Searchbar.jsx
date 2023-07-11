@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 
 export class Searchbar extends Component {
@@ -10,10 +11,14 @@ export class Searchbar extends Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
-    this.props.onSubmit(this.state);
-    this.reset();
-  };
+        const { query } = this.state;
+        e.preventDefault();
+        if (!query) {
+          return alert('Заповніть строку пошуку')
+        }
+        this.props.onSubmit(this.state);
+        this.reset();
+      };
 
   reset = () => {
     this.setState({
@@ -46,4 +51,8 @@ export class Searchbar extends Component {
       </header>
     );
   }
+}
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 }
